@@ -1,5 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
+require('@openzeppelin/hardhat-upgrades');
+
 const fs = require('fs');
 const privateKey = fs.readFileSync(".secret").toString().trim() || "5c3cde2b170e0211b2c6fee3a14dbe275d073259b79622e9e307023025be5e97";
 // const infuraId = fs.readFileSync(".infuraid").toString().trim() || "";
@@ -13,6 +15,7 @@ module.exports = {
         rinkeby: {
             chainId: 4,
             // npx hardhat run scripts/deploy.js --network rinkeby  
+            // npx hardhat run scripts/upgrade.js --network rinkeby  
             url: "https://rinkeby.infura.io/v3/ca28dbffc5d14deca2170b6287d8a792", //Infura url with projectId
             accounts: [privateKey] // add the account that will deploy the contract (private key)
         },
