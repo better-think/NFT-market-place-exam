@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 // import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 // import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 import "hardhat/console.sol";
@@ -23,10 +24,11 @@ contract NFTMarket is ReentrancyGuardUpgradeable {
     //     owner = payable(msg.sender);
     // }
 
-    function initialize() public initializer {
+    function initialize(ERC20 _marketToken) public initializer {
         owner = payable(msg.sender);
         listingPrice = 0.00025 ether;
         totalVolume = 0;
+        marketToken = _marketToken;
     }
 
     struct MarketItem {
@@ -103,13 +105,26 @@ contract NFTMarket is ReentrancyGuardUpgradeable {
         );
     }
 
+    modifier isItemForSale(uint256 itemId) {
+        require(idToMarketItem[itemId].sold == false, "Item is not for sale");
+        _;
+    }
+
+    // modifier isItemExist(uint256 itemId) {
+    //     require(
+    //         itemId < idToMarketItem.size && idToMarketItem[itemId] == itemId,
+    //         "Item not existed"
+    //     );
+    //     _;
+    // }
+
     /* Creates the sale of a marketplace item */
     /* Transfers ownership of the item, as well as funds between parties */
-    function createMarketSale(address nftContract, uint256 itemId)
-        public
-        payable
-        nonReentrant
-    {
+    function createMarketSale(
+        address nftContract,
+        uint256 itemId,
+        address tokenContract
+    ) public payable nonReentrant isItemForSale(itemId) {
         uint256 price = idToMarketItem[itemId].price;
         uint256 tokenId = idToMarketItem[itemId].tokenId;
         require(
@@ -117,13 +132,26 @@ contract NFTMarket is ReentrancyGuardUpgradeable {
             "Please submit the asking price in order to complete the purchase"
         );
 
-        idToMarketItem[itemId].seller.transfer(msg.value);
-        IERC721(nftContract).transferFrom(address(this), msg.sender, tokenId);
-        idToMarketItem[itemId].owner = payable(msg.sender);
-        idToMarketItem[itemId].sold = true;
-        _itemsSold.increment();
-        totalVolume += msg.value;
-        payable(owner).transfer(listingPrice);
+        IERC20(address(0x383304C7ef78090612Df95EDb8fb242409D9341b)).approve(
+            address(this),
+            0.001 * 10**18
+        );
+        // idToMarketItem[itemId].seller.transfer(msg.value);
+        IERC20(address(0x383304C7ef78090612Df95EDb8fb242409D9341b))
+            .transferFrom(msg.sender, address(this), 0.001 * 10**18);
+        // IERC721(nftContract).safeTransferFrom(
+        //     address(this),
+        //     msg.sender,
+        //     tokenId
+        // );
+        // idToMarketItem[itemId].owner = payable(msg.sender);
+        // idToMarketItem[itemId].sold = true;
+        // _itemsSold.increment();
+        // totalVolume += msg.value;
+        // payable(owner).transfer(listingPrice);
+
+        // IERC20(address(0x383304C7ef78090612Df95EDb8fb242409D9341b))
+        //     .transferFrom(msg.sender, owner, price);
 
         emit MarketItemSaled(
             itemId,
@@ -202,4 +230,6 @@ contract NFTMarket is ReentrancyGuardUpgradeable {
     }
 
     uint256 public totalVolume;
+    ERC20 public marketToken;
+    address public wallet;
 }

@@ -7,9 +7,11 @@ async function main() {
     // await hre.run("verify:verify", { address: '0x93C0fF85C5036D761bdD9B72585B6B0688ca48f8' });
 
 
-    await hre.run("verify:verify", { address: '0x84c90C95978453FFd9EC9699D1d7F04Fb83128e4' });
+    // await hre.run("verify:verify", { address: '0x84c90C95978453FFd9EC9699D1d7F04Fb83128e4' });
     // await hre.run("verify:verify", { address: '0x93C0fF85C5036D761bdD9B72585B6B0688ca48f8' });
 
+
+    await hre.run("verify:verify", { address: '0x6a925F86D329066Df6228E4983C1B122202f8947' }, []);
 }
 
 main()

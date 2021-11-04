@@ -17,7 +17,9 @@ module.exports = {
             // npx hardhat run scripts/deploy.js --network rinkeby  
             // npx hardhat run scripts/upgrade.js --network rinkeby  
             url: "https://rinkeby.infura.io/v3/ca28dbffc5d14deca2170b6287d8a792", //Infura url with projectId
-            accounts: [privateKey] // add the account that will deploy the contract (private key)
+            accounts: [privateKey], // add the account that will deploy the contract (private key)
+            gas: 2100000,
+            gasPrice: 8000000000
         },
         /*
         mumbai: {

@@ -7,8 +7,13 @@ import {
     nftaddress, nftmarketaddress
 } from '../config'
 
+import {
+    gCoin
+} from '../config_erc20'
+
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
+import GCoin from '../artifacts/contracts/GCoin.sol/GCoin.json'
 const Web3 = require("web3")
 const web3 = new Web3("wss://rinkeby.infura.io/ws/v3/ca28dbffc5d14deca2170b6287d8a792")
 
@@ -142,9 +147,10 @@ export default function Home() {
         const provider = new ethers.providers.Web3Provider(connection)
         const signer = provider.getSigner()
         const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+        const gCoinContract = new ethers.Contract(gCoin, GCoin.abi, signer)
 
         const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
-        const transaction = await contract.createMarketSale(nftaddress, nft.tokenId, {
+        const transaction = await contract.createMarketSale(nftaddress, nft.tokenId, "0x187D9dE4bcb90246E50650Fc5A591E2B35D19AC1", {
             value: price
         })
         await transaction.wait()
