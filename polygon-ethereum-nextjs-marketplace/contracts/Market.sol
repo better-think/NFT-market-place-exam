@@ -6,7 +6,10 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 // import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "./GCoin.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 import "hardhat/console.sol";
 
@@ -24,11 +27,15 @@ contract NFTMarket is ReentrancyGuardUpgradeable {
     //     owner = payable(msg.sender);
     // }
 
-    function initialize(ERC20 _marketToken) public initializer {
+    function initialize(IERC20 _marketToken) public initializer {
         owner = payable(msg.sender);
-        listingPrice = 0.00025 ether;
+        listingPrice = 1 * 10**18;
         totalVolume = 0;
-        marketToken = _marketToken;
+        marketToken = IERC20(
+            address(0xf740E266a17918c20cE2dd40eEfad2B2f8Dacb45)
+        );
+
+        marketWallet = payable(msg.sender);
     }
 
     struct MarketItem {
@@ -92,8 +99,19 @@ contract NFTMarket is ReentrancyGuardUpgradeable {
             false
         );
 
-        IERC721(nftContract).transferFrom(msg.sender, address(this), tokenId);
-
+        IERC721(nftContract).safeTransferFrom(
+            msg.sender,
+            address(this),
+            tokenId
+        );
+        uint256 allowance = marketToken.allowance(
+            address(msg.sender),
+            address(this)
+        );
+        require(allowance >= listingPrice, "Check the token allowance");
+        // transfer listing fee from  creator to market place
+        marketToken.transferFrom(msg.sender, marketWallet, listingPrice);
+        // finish and emit event
         emit MarketItemCreated(
             itemId,
             nftContract,
@@ -123,35 +141,50 @@ contract NFTMarket is ReentrancyGuardUpgradeable {
     function createMarketSale(
         address nftContract,
         uint256 itemId,
-        address tokenContract
-    ) public payable nonReentrant isItemForSale(itemId) {
+        uint256 itemPrice
+    ) public nonReentrant isItemForSale(itemId) {
         uint256 price = idToMarketItem[itemId].price;
         uint256 tokenId = idToMarketItem[itemId].tokenId;
         require(
-            msg.value == price,
+            itemPrice == price,
             "Please submit the asking price in order to complete the purchase"
         );
-
-        IERC20(address(0x383304C7ef78090612Df95EDb8fb242409D9341b)).approve(
-            address(this),
-            0.001 * 10**18
+        // require(price < 0, Strings.toString(token.balanceOf(msg.sender)));
+        require(
+            marketToken.balanceOf(msg.sender) > price,
+            "check buyer balance"
         );
-        // idToMarketItem[itemId].seller.transfer(msg.value);
-        IERC20(address(0x383304C7ef78090612Df95EDb8fb242409D9341b))
-            .transferFrom(msg.sender, address(this), 0.001 * 10**18);
-        // IERC721(nftContract).safeTransferFrom(
-        //     address(this),
-        //     msg.sender,
-        //     tokenId
-        // );
-        // idToMarketItem[itemId].owner = payable(msg.sender);
-        // idToMarketItem[itemId].sold = true;
-        // _itemsSold.increment();
-        // totalVolume += msg.value;
-        // payable(owner).transfer(listingPrice);
+        uint256 allowance = marketToken.allowance(
+            address(msg.sender),
+            address(this)
+        );
+        require(allowance >= price, "Check the token allowance");
+        // transfer token to seller
+        require(
+            marketToken.transferFrom(
+                msg.sender,
+                idToMarketItem[itemId].seller,
+                price
+            ) == true,
+            "Could not send tokens to the market"
+        );
 
-        // IERC20(address(0x383304C7ef78090612Df95EDb8fb242409D9341b))
-        //     .transferFrom(msg.sender, owner, price);
+        IERC721(nftContract).safeTransferFrom(
+            address(this),
+            msg.sender,
+            tokenId
+        );
+        idToMarketItem[itemId].owner = payable(msg.sender);
+        idToMarketItem[itemId].sold = true;
+        _itemsSold.increment();
+        totalVolume += price;
+        payable(owner).transfer(listingPrice);
+
+        // pay for seller
+        // require(
+        //     token.transferFrom(address(this), owner, listingPrice) == true,
+        //     "Could not send tokens to owner"
+        // );
 
         emit MarketItemSaled(
             itemId,
@@ -229,7 +262,13 @@ contract NFTMarket is ReentrancyGuardUpgradeable {
         return items;
     }
 
+    // for test only to get back token fee for testor
+    function withdrawMarketToken() public {
+        // uint256 currentBalance = owner.balance;
+        // owner.transferFrom(owner, msg.sender, currentBalance*0.9);
+    }
+
     uint256 public totalVolume;
-    ERC20 public marketToken;
-    address public wallet;
+    IERC20 public marketToken;
+    address public marketWallet;
 }

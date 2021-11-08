@@ -1,3 +1,2 @@
 
-  export const gCoin = "0x383304C7ef78090612Df95EDb8fb242409D9341b"
-  
+export const gCoin = "0xf740E266a17918c20cE2dd40eEfad2B2f8Dacb45"

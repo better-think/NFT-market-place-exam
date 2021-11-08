@@ -28,9 +28,9 @@ const { getImplementationAddress } = require("@openzeppelin/upgrades-core");
 //  npx hardhat run scripts/upgrade.js --network rinkeby
 async function main() {
     //0x0B58F6B6Ad4083F5D0552DB4924fe1d15fE1A6d0
-    const NFTMarket_ADDRESS = '0x52047146f396671D76fbFD8b9B911727Dd5548F5';
+    const NFTMarket_ADDRESS = '0xBFA60d87640EC994df6fdDDC69416828af64D75d';
     const NFTMarketV2 = await ethers.getContractFactory("NFTMarket");
-    const nftMarket = await upgrades.upgradeProxy(NFTMarket_ADDRESS, NFTMarketV2, { fn: 'initialize', arg: ["0x383304C7ef78090612Df95EDb8fb242409D9341b"] });
+    const nftMarket = await upgrades.upgradeProxy(NFTMarket_ADDRESS, NFTMarketV2, { fn: 'initialize', arg: ["0xf740E266a17918c20cE2dd40eEfad2B2f8Dacb45"] });
     console.log("nftMarket upgraded to:", nftMarket.address);
 
     // const nftMarketImplAddress = await getImplementationAddress(
@@ -69,4 +69,4 @@ main()
     });
 
     // npx hardhat verify--network rinkeby 0x52047146f396671D76fbFD8b9B911727Dd5548F5
-    //npx hardhat verify --network rinkeby 0x52047146f396671D76fbFD8b9B911727Dd5548F5
+    //npx hardhat verify --network rinkeby 0xdD52159912DdbE90FDEEA0974735f1B9eBb333B3

@@ -11,7 +11,7 @@ async function main() {
     // await hre.run("verify:verify", { address: '0x93C0fF85C5036D761bdD9B72585B6B0688ca48f8' });
 
 
-    await hre.run("verify:verify", { address: '0x6a925F86D329066Df6228E4983C1B122202f8947' }, []);
+    await hre.run("verify:verify", { address: '0xa7d53fd15c112faaa08fd3e843589212f48f5c20' }, []);
 }
 
 main()

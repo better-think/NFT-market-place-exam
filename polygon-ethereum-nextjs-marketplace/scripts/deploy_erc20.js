@@ -31,7 +31,7 @@ async function main() {
     const GCoin = await ethers.getContractFactory("GCoin");
     const gCoin = await GCoin.deploy();
     await gCoin.deployed();
-    console.log("nftMarket deployed to:", gCoin.address);
+    console.log("token deployed to:", gCoin.address);
 
 
 
@@ -40,7 +40,7 @@ async function main() {
   `
 
     let data = JSON.stringify(config)
-    fs.writeFileSync('config_erc20.js', JSON.parse(data))
+    fs.writeFileSync('config_erc20' + gCoin.address + ".js", JSON.parse(data))
 
 }
 

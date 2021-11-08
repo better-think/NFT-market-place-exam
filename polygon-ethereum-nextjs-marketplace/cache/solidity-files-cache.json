@@ -1,10 +1,10 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\contracts\\Market.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "39e0319a77f424ff34142043d68ac4e6",
-      "sourceName": "contracts/Market.sol",
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/contracts/GCoin.sol": {
+      "lastModificationDate": 1636180526000,
+      "contentHash": "80805219ee0af7798f8a8c60f0c7146a",
+      "sourceName": "contracts/GCoin.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -28,9 +28,6 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/utils/Counters.sol",
-        "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol",
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
         "@openzeppelin/contracts/token/ERC20/ERC20.sol",
         "hardhat/console.sol"
       ],
@@ -38,81 +35,13 @@
         "^0.8.3"
       ],
       "artifacts": [
-        "NFTMarket"
+        "GCoin"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\utils\\Counters.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "b7811964d33f23b2d45ed3ebb76a4548",
-      "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Counters"
-      ]
-    },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\security\\ReentrancyGuard.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "53fbff678f378956efcb207fa748eaa6",
-      "sourceName": "@openzeppelin/contracts/security/ReentrancyGuard.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ReentrancyGuard"
-      ]
-    },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\ERC721.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "68557a95c05dac5415ccbeb0a389ccaf",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1636087790000,
+      "contentHash": "acad756301f0fb200ecc66138e8cd5c5",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -136,23 +65,19 @@
         }
       },
       "imports": [
-        "./IERC721.sol",
-        "./IERC721Receiver.sol",
-        "./extensions/IERC721Metadata.sol",
-        "../../utils/Address.sol",
-        "../../utils/Context.sol",
-        "../../utils/Strings.sol",
-        "../../utils/introspection/ERC165.sol"
+        "./IERC20.sol",
+        "./extensions/IERC20Metadata.sol",
+        "../../utils/Context.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "ERC721"
+        "ERC20"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\hardhat\\console.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1636087784000,
       "contentHash": "cc4777addd464ea56fa35b1c45df0591",
       "sourceName": "hardhat/console.sol",
       "solcConfig": {
@@ -185,46 +110,10 @@
         "console"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "53919d6975f2c0f3dffee5e3a1064116",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../../utils/introspection/IERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC721"
-      ]
-    },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721Receiver.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "9a367cecca6fed80a3e975b7e6b3bd5c",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1636087790000,
+      "contentHash": "0eac3e1a83ee62326ca007811285b274",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -252,13 +141,13 @@
         "^0.8.0"
       ],
       "artifacts": [
-        "IERC721Receiver"
+        "IERC20"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\IERC721Metadata.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "8aa69ca8424167555baaaa9f607801db",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1636087792000,
+      "contentHash": "aa1be06992a99bb7393b26a6af3c4dfb",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -282,51 +171,17 @@
         }
       },
       "imports": [
-        "../IERC721.sol"
+        "../IERC20.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "IERC721Metadata"
+        "IERC20Metadata"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\utils\\Address.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "1ea1589528625ace210951bc8cd186c9",
-      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Address"
-      ]
-    },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1636087787000,
       "contentHash": "07f148e0d44b2ffc23b3ae6dd6e38cfb",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -359,113 +214,9 @@
         "Context"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\utils\\Strings.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "62142442bed149f965c5ed971fae4182",
-      "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Strings"
-      ]
-    },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "a9a5319dff9088c6ffe757ea1c2a6729",
-      "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC165"
-      ]
-    },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "9a04322bb8f6b8f2767d8358d1d2537b",
-      "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC165"
-      ]
-    },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\contracts\\NFT.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "c0082f90746e12cd6543a354c5f9be9b",
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/contracts/NFT.sol": {
+      "lastModificationDate": 1636087542000,
+      "contentHash": "6700460c165b0e43922090e1459b5152",
       "sourceName": "contracts/NFT.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -502,46 +253,10 @@
         "NFT"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\ERC721URIStorage.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "94da923c22e9773af388607307182c80",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../ERC721.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC721URIStorage"
-      ]
-    },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "cbb8386f0120d46d66ff42dffbbc16c1",
-      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
+      "lastModificationDate": 1636087787000,
+      "contentHash": "b7811964d33f23b2d45ed3ebb76a4548",
+      "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -569,11 +284,11 @@
         "^0.8.0"
       ],
       "artifacts": [
-        "Initializable"
+        "Counters"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721URIStorageUpgradeable.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol": {
+      "lastModificationDate": 1636087792000,
       "contentHash": "2234ba1fc99283191f9c4e46c7563ddf",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol",
       "solcConfig": {
@@ -609,8 +324,8 @@
         "ERC721URIStorageUpgradeable"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol": {
+      "lastModificationDate": 1636087790000,
       "contentHash": "63eb3219a2e5bb37437ba1bc8a06cb20",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
       "solcConfig": {
@@ -652,8 +367,42 @@
         "ERC721Upgradeable"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC721\\IERC721Upgradeable.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+      "lastModificationDate": 1636087790000,
+      "contentHash": "cbb8386f0120d46d66ff42dffbbc16c1",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Initializable"
+      ]
+    },
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol": {
+      "lastModificationDate": 1636087790000,
       "contentHash": "19b5eecf9c8a8c2b949ee02c905229d4",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol",
       "solcConfig": {
@@ -688,8 +437,8 @@
         "IERC721Upgradeable"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC721\\IERC721ReceiverUpgradeable.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol": {
+      "lastModificationDate": 1636087790000,
       "contentHash": "4655add0d188acb83025b350b1865d12",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol",
       "solcConfig": {
@@ -722,8 +471,8 @@
         "IERC721ReceiverUpgradeable"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\IERC721MetadataUpgradeable.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol": {
+      "lastModificationDate": 1636087792000,
       "contentHash": "9cd42fc3db4b87cc9110dd648daeee7f",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol",
       "solcConfig": {
@@ -758,8 +507,8 @@
         "IERC721MetadataUpgradeable"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts-upgradeable\\utils\\AddressUpgradeable.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+      "lastModificationDate": 1636087787000,
       "contentHash": "25dd93dd672c3114a782e2a4424201b3",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
       "solcConfig": {
@@ -792,8 +541,8 @@
         "AddressUpgradeable"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+      "lastModificationDate": 1636087787000,
       "contentHash": "3eaa562e66c40d85f919cc6ee5059ebe",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
       "solcConfig": {
@@ -828,8 +577,8 @@
         "ContextUpgradeable"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts-upgradeable\\utils\\StringsUpgradeable.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol": {
+      "lastModificationDate": 1636087787000,
       "contentHash": "80d3ad01fbd728e8a0dcde979c610377",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol",
       "solcConfig": {
@@ -862,8 +611,8 @@
         "StringsUpgradeable"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts-upgradeable\\utils\\introspection\\ERC165Upgradeable.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol": {
+      "lastModificationDate": 1636087790000,
       "contentHash": "3649e7528117ffc7d8a3ccf199b0c6d8",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol",
       "solcConfig": {
@@ -899,8 +648,8 @@
         "ERC165Upgradeable"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts-upgradeable\\utils\\introspection\\IERC165Upgradeable.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol": {
+      "lastModificationDate": 1636087790000,
       "contentHash": "4db71815975139b4bcedb3b615131302",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol",
       "solcConfig": {
@@ -933,8 +682,8 @@
         "IERC165Upgradeable"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts-upgradeable\\security\\ReentrancyGuardUpgradeable.sol": {
-      "lastModificationDate": 1240428288000,
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol": {
+      "lastModificationDate": 1636087787000,
       "contentHash": "304d95a6b1f0ca8db842e5fe1f2024a9",
       "sourceName": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol",
       "solcConfig": {
@@ -969,10 +718,10 @@
         "ReentrancyGuardUpgradeable"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\contracts\\GCoin.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "9dee22f51e633bff7eac8c8805980ed4",
-      "sourceName": "contracts/GCoin.sol",
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/contracts/Market.sol": {
+      "lastModificationDate": 1636334671000,
+      "contentHash": "cbe39ec0b0cbd4506328e7bdfe3b7bdb",
+      "sourceName": "contracts/Market.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -996,20 +745,26 @@
         }
       },
       "imports": [
+        "@openzeppelin/contracts/utils/Counters.sol",
+        "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol",
+        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
         "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "./GCoin.sol",
+        "@openzeppelin/contracts/utils/Strings.sol",
         "hardhat/console.sol"
       ],
       "versionPragmas": [
         "^0.8.3"
       ],
       "artifacts": [
-        "GCoin"
+        "NFTMarket"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\ERC20.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "acad756301f0fb200ecc66138e8cd5c5",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
+      "lastModificationDate": 1636087790000,
+      "contentHash": "68557a95c05dac5415ccbeb0a389ccaf",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -1033,21 +788,61 @@
         }
       },
       "imports": [
-        "./IERC20.sol",
-        "./extensions/IERC20Metadata.sol",
-        "../../utils/Context.sol"
+        "./IERC721.sol",
+        "./IERC721Receiver.sol",
+        "./extensions/IERC721Metadata.sol",
+        "../../utils/Address.sol",
+        "../../utils/Context.sol",
+        "../../utils/Strings.sol",
+        "../../utils/introspection/ERC165.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "ERC20"
+        "ERC721"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "0eac3e1a83ee62326ca007811285b274",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+      "lastModificationDate": 1636087790000,
+      "contentHash": "53919d6975f2c0f3dffee5e3a1064116",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721"
+      ]
+    },
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+      "lastModificationDate": 1636087790000,
+      "contentHash": "9a367cecca6fed80a3e975b7e6b3bd5c",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -1075,13 +870,13 @@
         "^0.8.0"
       ],
       "artifacts": [
-        "IERC20"
+        "IERC721Receiver"
       ]
     },
-    "D:\\Dropbox\\Blockchain\\LEARN\\nft-market-place-example\\polygon-ethereum-nextjs-marketplace\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\extensions\\IERC20Metadata.sol": {
-      "lastModificationDate": 1240428288000,
-      "contentHash": "aa1be06992a99bb7393b26a6af3c4dfb",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+      "lastModificationDate": 1636087792000,
+      "contentHash": "8aa69ca8424167555baaaa9f607801db",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -1105,13 +900,151 @@
         }
       },
       "imports": [
-        "../IERC20.sol"
+        "../IERC721.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "IERC20Metadata"
+        "IERC721Metadata"
+      ]
+    },
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+      "lastModificationDate": 1636087787000,
+      "contentHash": "1ea1589528625ace210951bc8cd186c9",
+      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
+      "lastModificationDate": 1636087787000,
+      "contentHash": "62142442bed149f965c5ed971fae4182",
+      "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Strings"
+      ]
+    },
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+      "lastModificationDate": 1636087790000,
+      "contentHash": "a9a5319dff9088c6ffe757ea1c2a6729",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC165"
+      ]
+    },
+    "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1636087790000,
+      "contentHash": "9a04322bb8f6b8f2767d8358d1d2537b",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC165"
       ]
     }
   }

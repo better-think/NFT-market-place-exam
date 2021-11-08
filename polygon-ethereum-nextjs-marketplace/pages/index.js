@@ -2,7 +2,8 @@ import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
-
+import { MaxUint256 } from '@ethersproject/constants'
+import { TransactionResponse } from '@ethersproject/providers'
 import {
     nftaddress, nftmarketaddress
 } from '../config'
@@ -14,6 +15,7 @@ import {
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
 import GCoin from '../artifacts/contracts/GCoin.sol/GCoin.json'
+import { messagePrefix } from '@ethersproject/hash'
 const Web3 = require("web3")
 const web3 = new Web3("wss://rinkeby.infura.io/ws/v3/ca28dbffc5d14deca2170b6287d8a792")
 
@@ -64,7 +66,7 @@ export default function Home() {
         // console.log("event = " + JSON.stringify(event));
 
         web3.eth.subscribe("logs", {
-            address: "0x52047146f396671D76fbFD8b9B911727Dd5548F5",
+            address: "0xBFA60d87640EC994df6fdDDC69416828af64D75d",
             topics: [web3.utils.sha3("MarketItemSaled(uint256,address,uint256,address,address,uint256)")]
             //  topics: ["0xf508d7e0c4948bef562fa93bd0f424ce063d1def0ecf2ea0cc62bb2ec0419839"]
         }, (error, result) => {
@@ -150,9 +152,11 @@ export default function Home() {
         const gCoinContract = new ethers.Contract(gCoin, GCoin.abi, signer)
 
         const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
-        const transaction = await contract.createMarketSale(nftaddress, nft.tokenId, "0x187D9dE4bcb90246E50650Fc5A591E2B35D19AC1", {
-            value: price
-        })
+        // require buyer approve token for transfer
+        await gCoinContract.approve(nftmarketaddress, price);
+
+        const transaction = await contract.createMarketSale(nftaddress, nft.tokenId, price)
+
         await transaction.wait()
         loadNFTs()
     }
