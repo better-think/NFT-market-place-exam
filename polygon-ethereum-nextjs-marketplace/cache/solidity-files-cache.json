@@ -719,8 +719,8 @@
       ]
     },
     "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/contracts/Market.sol": {
-      "lastModificationDate": 1636334671000,
-      "contentHash": "cbe39ec0b0cbd4506328e7bdfe3b7bdb",
+      "lastModificationDate": 1636335948000,
+      "contentHash": "26308a31671b480fb39f728e7e6335cc",
       "sourceName": "contracts/Market.sol",
       "solcConfig": {
         "version": "0.8.4",

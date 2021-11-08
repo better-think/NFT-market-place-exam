@@ -10310,6 +10310,151 @@
           }
         }
       }
+    },
+    "484523f5ba02a61326c2cb75da55f94d4803352581bfcb2b1841a21fd697161b": {
+      "address": "0x2529Ca7AF2b8F366B0E8Fb4AB95450CEB865FC0f",
+      "txHash": "0xe30e6b7fbd7338e02734db9963f88a36153aaca65eb683bcf88085e03332a3b3",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:21"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:26"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "_status",
+            "type": "t_uint256",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:37"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:67"
+          },
+          {
+            "contract": "NFTMarket",
+            "label": "_itemIds",
+            "type": "t_struct(Counter)3767_storage",
+            "src": "contracts/Market.sol:18"
+          },
+          {
+            "contract": "NFTMarket",
+            "label": "_itemsSold",
+            "type": "t_struct(Counter)3767_storage",
+            "src": "contracts/Market.sol:19"
+          },
+          {
+            "contract": "NFTMarket",
+            "label": "owner",
+            "type": "t_address_payable",
+            "src": "contracts/Market.sol:21"
+          },
+          {
+            "contract": "NFTMarket",
+            "label": "listingPrice",
+            "type": "t_uint256",
+            "src": "contracts/Market.sol:22"
+          },
+          {
+            "contract": "NFTMarket",
+            "label": "idToMarketItem",
+            "type": "t_mapping(t_uint256,t_struct(MarketItem)4199_storage)",
+            "src": "contracts/Market.sol:51"
+          },
+          {
+            "contract": "NFTMarket",
+            "label": "totalVolume",
+            "type": "t_uint256",
+            "src": "contracts/Market.sol:271"
+          },
+          {
+            "contract": "NFTMarket",
+            "label": "marketToken",
+            "type": "t_contract(IERC20)2440",
+            "src": "contracts/Market.sol:272"
+          },
+          {
+            "contract": "NFTMarket",
+            "label": "marketWallet",
+            "type": "t_address",
+            "src": "contracts/Market.sol:273"
+          }
+        ],
+        "types": {
+          "t_struct(Counter)3767_storage": {
+            "label": "struct Counters.Counter",
+            "members": [
+              {
+                "label": "_value",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_address_payable": {
+            "label": "address payable"
+          },
+          "t_mapping(t_uint256,t_struct(MarketItem)4199_storage)": {
+            "label": "mapping(uint256 => struct NFTMarket.MarketItem)"
+          },
+          "t_struct(MarketItem)4199_storage": {
+            "label": "struct NFTMarket.MarketItem",
+            "members": [
+              {
+                "label": "itemId",
+                "type": "t_uint256"
+              },
+              {
+                "label": "nftContract",
+                "type": "t_address"
+              },
+              {
+                "label": "tokenId",
+                "type": "t_uint256"
+              },
+              {
+                "label": "seller",
+                "type": "t_address_payable"
+              },
+              {
+                "label": "owner",
+                "type": "t_address_payable"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256"
+              },
+              {
+                "label": "sold",
+                "type": "t_bool"
+              }
+            ]
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_contract(IERC20)2440": {
+            "label": "contract IERC20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          }
+        }
+      }
     }
   }
 }

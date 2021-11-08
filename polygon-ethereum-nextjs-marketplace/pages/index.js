@@ -66,7 +66,7 @@ export default function Home() {
         // console.log("event = " + JSON.stringify(event));
 
         web3.eth.subscribe("logs", {
-            address: "0xBFA60d87640EC994df6fdDDC69416828af64D75d",
+            address: nftmarketaddress,
             topics: [web3.utils.sha3("MarketItemSaled(uint256,address,uint256,address,address,uint256)")]
             //  topics: ["0xf508d7e0c4948bef562fa93bd0f424ce063d1def0ecf2ea0cc62bb2ec0419839"]
         }, (error, result) => {
