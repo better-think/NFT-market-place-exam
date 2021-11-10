@@ -20,6 +20,7 @@ contract NFTMarket is ReentrancyGuardUpgradeable {
 
     address payable owner;
     uint256 listingPrice;
+    mapping(uint256 => string) reverseTokenURI;
 
     // uint256 public totalVolume;
 
@@ -112,6 +113,9 @@ contract NFTMarket is ReentrancyGuardUpgradeable {
         require(allowance >= listingPrice, "Check the token allowance");
         // transfer listing fee from  creator to market place
         marketToken.transferFrom(msg.sender, marketWallet, listingPrice);
+
+        reverseTokenURI[tokenId] = tokenURI;
+
         // finish and emit event
         emit MarketItemCreated(
             itemId,
@@ -267,6 +271,11 @@ contract NFTMarket is ReentrancyGuardUpgradeable {
     function withdrawMarketToken() public {
         // uint256 currentBalance = owner.balance;
         // owner.transferFrom(owner, msg.sender, currentBalance*0.9);
+    }
+
+    function releaseItemDetail(address nftContract, uint256 tokenId) public {
+        IERC721(nftContract).setUri(tokenId, reverseTokenURI[tokenId]);
+        delete reverseTokenURI[tokenId];
     }
 
     uint256 public totalVolume;
