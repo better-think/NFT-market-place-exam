@@ -9,9 +9,13 @@ const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 import {
     nftaddress, nftmarketaddress
 } from '../config'
+import {
+    gCoin
+} from '../config_erc20'
 
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
+import GCoin from '../artifacts/contracts/GCoin.sol/GCoin.json'
 
 export default function CreateItem() {
     const [fileUrl, setFileUrl] = useState(null)
@@ -55,10 +59,12 @@ export default function CreateItem() {
         const connection = await web3Modal.connect()
         const provider = new ethers.providers.Web3Provider(connection)
         const signer = provider.getSigner()
+        const gCoinContract = new ethers.Contract(gCoin, GCoin.abi, signer)
+
 
         /* next, create the item */
         let contract = new ethers.Contract(nftaddress, NFT.abi, signer)
-        let transaction = await contract.createToken(url)
+        let transaction = await contract.createToken("")
         let tx = await transaction.wait()
         let event = tx.events[0]
         let value = event.args[2]
@@ -66,12 +72,13 @@ export default function CreateItem() {
 
         const price = ethers.utils.parseUnits(formInput.price, 'ether')
 
+
         /* then list the item for sale on the marketplace */
         contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
         let listingPrice = await contract.getListingPrice()
-        listingPrice = listingPrice.toString()
+        await gCoinContract.approve(nftmarketaddress, listingPrice);
 
-        transaction = await contract.createMarketItem(nftaddress, tokenId, price, { value: listingPrice })
+        transaction = await contract.createMarketItem(nftaddress, tokenId, price, url)
         await transaction.wait()
         router.push('/')
     }

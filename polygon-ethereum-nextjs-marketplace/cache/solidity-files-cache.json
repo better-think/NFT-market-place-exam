@@ -215,8 +215,8 @@
       ]
     },
     "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/contracts/NFT.sol": {
-      "lastModificationDate": 1636087542000,
-      "contentHash": "6700460c165b0e43922090e1459b5152",
+      "lastModificationDate": 1636517348000,
+      "contentHash": "06581affac3e79a18d221d362fa77474",
       "sourceName": "contracts/NFT.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -719,8 +719,8 @@
       ]
     },
     "/Volumes/WORKS/Dropbox/Blockchain/LEARN/nft-market-place-example/polygon-ethereum-nextjs-marketplace/contracts/Market.sol": {
-      "lastModificationDate": 1636335948000,
-      "contentHash": "26308a31671b480fb39f728e7e6335cc",
+      "lastModificationDate": 1636517577000,
+      "contentHash": "0b0827bb975b631d564bd5b948a97b99",
       "sourceName": "contracts/Market.sol",
       "solcConfig": {
         "version": "0.8.4",

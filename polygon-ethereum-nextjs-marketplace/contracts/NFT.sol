@@ -33,4 +33,16 @@ contract NFT is ERC721URIStorageUpgradeable {
         setApprovalForAll(contractAddress, true);
         return newItemId;
     }
+
+    function setUri(uint256 itemId, string memory tokenURI)
+        external
+        onlyMarketplace
+    {
+        _setTokenURI(itemId, tokenURI);
+    }
+
+    modifier onlyMarketplace() {
+        require(msg.sender == contractAddress, "Item is not for sale");
+        _;
+    }
 }
